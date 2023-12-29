@@ -1,0 +1,33 @@
+<svg version="1.1" id="Layer_2"
+    xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 80.3 80.3" style="enable-background:new 0 0 80.3 80.3" xml:space="preserve">
+    <style>.st4{fill:#fff}.st5{fill:#ed6b5a}.st6{fill:#0c2c48}.st10{fill:#50646f}.st23{fill:#2384ab}.st26{fill:#6eb9e0}.st27{fill:#f8a06d}.st40{fill:none;stroke:#0c2c48;stroke-width:1.4;stroke-miterlimit:10}</style>
+    <circle class="st10" cx="40.2" cy="40.2" r="40.2"/>
+    <path class="st40" d="M40.2 20v44.3"/>
+    <path class="st4" d="M14.5 14.5h51.3v11.2H14.5z"/>
+    <path class="st26" d="M16.2 16.1h3.5v3.5h-3.5zM20.8 16.1h3.5v3.5h-3.5zM25.4 16.1h3.5v3.5h-3.5z"/>
+    <path class="st6" d="M16.2 21h3.5v3.5h-3.5zM20.8 21h3.5v3.5h-3.5zM25.4 21h3.5v3.5h-3.5z"/>
+    <g>
+        <path class="st6" d="M54.4 16.1h2v8.5h-2zM58.3 16.1h2v8.5h-2zM62.2 16.1h2v8.5h-2z"/>
+    </g>
+    <circle class="st26" cx="40.5" cy="20" r="3.1"/>
+    <g>
+        <path class="st4" d="M14.5 30.7h51.3v11.2H14.5z"/>
+        <path class="st27" d="M16.2 32.2h3.5v3.5h-3.5zM20.8 32.2h3.5v3.5h-3.5zM25.4 32.2h3.5v3.5h-3.5z"/>
+        <path class="st5" d="M16.2 37.1h3.5v3.5h-3.5zM20.8 37.1h3.5v3.5h-3.5zM25.4 37.1h3.5v3.5h-3.5z"/>
+        <g>
+            <path class="st23" d="M54.4 32.2h2v8.5h-2zM58.3 32.2h2v8.5h-2zM62.2 32.2h2v8.5h-2z"/>
+        </g>
+        <circle class="st10" cx="40.5" cy="36.1" r="3.1"/>
+    </g>
+    <g>
+        <path class="st4" d="M14.5 46.8h51.3V58H14.5z"/>
+        <path class="st5" d="M16.2 48.3h3.5v3.5h-3.5zM20.8 48.3h3.5v3.5h-3.5zM25.4 48.3h3.5v3.5h-3.5z"/>
+        <path class="st6" d="M16.2 53.2h3.5v3.5h-3.5zM20.8 53.2h3.5v3.5h-3.5zM25.4 53.2h3.5v3.5h-3.5z"/>
+        <g>
+            <path class="st27" d="M54.4 48.3h2v8.5h-2zM58.3 48.3h2v8.5h-2zM62.2 48.3h2v8.5h-2z"/>
+        </g>
+        <circle cx="40.5" cy="52.2" r="3.1" style="fill:#f6a09c"/>
+    </g>
+    <path class="st40" d="M62.4 64.6H18"/>
+    <circle class="st27" cx="40.2" cy="64.8" r="3.1"/>
+</svg>
