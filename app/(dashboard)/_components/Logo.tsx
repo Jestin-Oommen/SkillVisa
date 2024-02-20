@@ -3,10 +3,10 @@ import Image from "next/image";
 const Logo = () => {
     return ( 
         <Image
-        height={50}
-        width={50}
+        height={150}
+        width={250}
         alt="logo"
-        src={"/server.svg"}/>
+        src={"/skillvisa-bg.png"}/>
 
         
      );
