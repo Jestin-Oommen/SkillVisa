@@ -88,7 +88,7 @@ const CategoryForm = ({
                         return(
                         <FormItem>
                             <FormControl>
-                                <Combobox options={ ...options} {...field}/>
+                                <Combobox {...field} options={options}/>
                             </FormControl>
                             <FormMessage/>
                         </FormItem>
