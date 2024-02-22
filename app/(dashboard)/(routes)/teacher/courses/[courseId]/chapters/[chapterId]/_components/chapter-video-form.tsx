@@ -86,7 +86,7 @@ const ChapterVideoForm = ({
                 
             ):(
                 <div className="relative aspect-video mt-2">
-                  <MuxPlayer playbackId={initialData.muxDate?.playbackId || ""}/>
+                  <video src={initialData.videoUrl} controls/>
                 </div>
             )
             )}
@@ -110,7 +110,7 @@ const ChapterVideoForm = ({
             )}
             {initialData.videoUrl && !isEditing &&(
                 <div className="text-xs text-muted-foreground mt-2">
-                    Videos can take few minutes to process. Refresh the pages if video does not appear/
+                    Videos can take few minutes to process. Refresh the pages if video does not appear
                 </div>
             )}
         </div>

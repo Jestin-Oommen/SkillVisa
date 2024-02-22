@@ -1,7 +1,5 @@
-
-
-
-
+import { UTApi } from "uploadthing/server";
+export const utapi = new UTApi();
 import Mux from "@mux/mux-node";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
@@ -61,6 +59,10 @@ export async function DELETE(
           }
         });
       }
+    }
+
+    if(chapter.videoUrl){
+      await utapi.deleteFiles(chapter.videoUrl)
     }
 
     const deletedChapter = await db.chapter.delete({

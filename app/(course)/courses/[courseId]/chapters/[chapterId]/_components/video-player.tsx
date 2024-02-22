@@ -1,82 +1,43 @@
 "use client"
-
-
-import MuxPlayer from "@mux/mux-player-react"
-import { useState } from "react"
-import toast from "react-hot-toast"
-import { useRouter } from "next/navigation"
-import axios from "axios"
-import { Loader2, Lock } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { useConfettiStore } from "@/hooks/use-confetti-store"
+import React, { useEffect } from 'react';
+import 'video.js/dist/video-js.css';
+import videojs from 'video.js';
 
 interface VideoPlayerProps {
-    playbackId:string;
-    courseId:string;
-    chapterId:string;
-    nextChapterId?:string;
-    isLocked:boolean;
-    completedOnEnd:boolean;
-    title:string
+    videoSource: string;
 }
 
-export const VideoPlayer=({
-    playbackId,courseId,chapterId,nextChapterId,isLocked,completedOnEnd,title
-}:VideoPlayerProps)=>{
+const VideoPlayer = ({ videoSource }: VideoPlayerProps) => {
+  useEffect(() => {
+    // Initialize Video.js
+    const player = videojs('my-video', {
+      // Video.js options (if any)
+    });
 
-    const [isReady,setIsReady]=useState(false)
-    const router=useRouter();
-    const confetti=useConfettiStore()
+    // Clean up on component unmount
+    return () => {
+      if (player) {
+        player.dispose();
+      }
+    };
+  }, []); // Empty dependency array ensures the effect runs only once
 
-    const onEnd=async()=>{
-        try{
-            if(completedOnEnd){
-                await axios.put(`/api/courses/${courseId}/chapters/${chapterId}/progress`,{
-                    isCompleted:true
-                })
-            } 
-            if(!nextChapterId){
-                confetti.onOpen()
-            }
-            toast.success("Progress updated")
-            router.refresh();
-
-            if(nextChapterId){
-                router.push(`/courses/${courseId}/chapters/${nextChapterId}`)
-            }
-
-        }
-        catch{
-            toast.error("Something went wrong")
-        }
+  return (
+    <div data-vjs-player>
+      <video
+        id="my-video"
+        className="video-js vjs-default-skin"
+        controls
+        preload="auto"
+        width="640"
+        height="360"
         
-    }
+      >
+        <source src={videoSource} type="video/mp4" />
+        {/* Add additional source elements for different video formats if needed */}
+      </video>
+    </div>
+  );
+};
 
-    return(
-        <div className="relative aspect-video">
-            {!isReady && !isLocked &&(
-                <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
-                    <Loader2 className="h-8 w-8 animate-spin text-secondary"/>
-                </div>    
-            )}
-            {isLocked &&(
-                <div className="absolute inset-0 flex items-center justify-center bg-slate-800
-                flex-col gap-y-2 text-secondary">
-                    <Lock className="h-8 w-8"/>
-                    <p className="text-sm">
-                        This chapter is locked
-                    </p>
-                </div>    
-            )}
-            {!isLocked && (
-                <MuxPlayer title={title}
-                className={cn(!isReady && "hidden")}
-                onCanPlay={()=>setIsReady(true)}
-                onEnded={()=>{onEnd()}}
-                autoPlay
-                playbackId={playbackId}/>
-            )}
-        </div>
-    )
-
-}
+export default VideoPlayer;

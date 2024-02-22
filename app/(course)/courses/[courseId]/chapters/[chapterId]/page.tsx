@@ -2,12 +2,16 @@ import { getChapter } from "@/actions/get-chapter";
 import { Banner } from "@/components/banner";
 import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation";
-import { VideoPlayer } from "./_components/video-player";
+
 import { CourseEnrollButton } from "./_components/course-enroll-button";
 import { Separator } from "@/components/ui/separator";
 import { Preview } from "@/components/preview";
 import { CourseProgress } from "@/components/course-progress";
 import CourseProgressButton from "./_components/course-progress-button";
+import videojs from 'video.js';
+import 'video.js/dist/video-js.css';
+import VideoPlayer from "./_components/video-player";
+ 
 const ChapterIdPage = async({
     params
 }:{
@@ -37,6 +41,7 @@ const ChapterIdPage = async({
 
     return ( 
         <div>
+            
             {userProgress?.isCompleted && (
                 <Banner variant={"success"} label="You already completed this chapter"/>
             )}
@@ -44,15 +49,12 @@ const ChapterIdPage = async({
                 <Banner variant={"warning"} label="You need to purchase this course"/>
             )}
             
-            <div className="flex flex-col max-w-4xl mx-auto pb-20">
+            <div className="flex flex-col max-w-4xl mx-auto pb-20 rounded-md">
                 <div className="p-4">
-                <VideoPlayer chapterId={params.chapterId} title={chapter.title}
-                 courseId={params.courseId} nextChapterId={nextChapter?.id} 
-                 playbackId={muxData?.playbackId!} isLocked={isLocked} 
-                 completedOnEnd={completedOnEnd}
-                 />
+                 <video controls className="w-full rounded-md">
+                     <source src={chapter.videoUrl!} type="video/mp4"/>
+                 </video>
                 </div>
-
                 <div>
                     <div className="p-4 flex flex-col md:flex-row  items-center justify-between">
                         <h2 className="text-2xl font-semibold mb-2">
