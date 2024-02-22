@@ -30,7 +30,7 @@ export async function POST(
     if(event.type ==="checkout.session.completed"){
 
         if(!userId || !courseId){
-            return new NextResponse("Webhook error: Missing data",{status:400});
+            return new NextResponse("Webhook error: Missing  meta data",{status:400});
         }
 
         await db.purchase.create({

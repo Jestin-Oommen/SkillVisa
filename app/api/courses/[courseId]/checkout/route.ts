@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { stripe } from "@/lib/stripe";
-import { auth, currentUser } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
@@ -37,7 +37,7 @@ export async function POST(
         }
 
         if (!course) {
-            return new NextResponse("Course Not Found", { status: 404 });
+            return new NextResponse(" Not Found", { status: 404 });
         }
 
         const line_items: Stripe.Checkout.SessionCreateParams.LineItem[] = [
@@ -87,7 +87,7 @@ export async function POST(
             customer: stripeCustomer.stripeCustomerId,
             line_items,
             mode: "payment",
-            success_url: `${process.env.NEXT_PUBLIC_APP_URL}/courses/${course.id}`,
+            success_url: `${process.env.NEXT_PUBLIC_APP_URL}/courses/${course.id}?success=1`,
             cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/courses/${course.id}?canceled=1`,
             metadata: {
                 courseId: course.id,
