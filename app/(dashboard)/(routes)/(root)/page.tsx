@@ -6,6 +6,7 @@ import { CheckCircle, Clock } from 'lucide-react';
 import Image from 'next/image'
 import { redirect } from 'next/navigation';
 import { InfoCard } from './_components/info-card';
+import Link from 'next/link';
 
 export default async function Dashboard() {
   
@@ -31,6 +32,14 @@ export default async function Dashboard() {
           variant="success"
        />
       </div>
+      <div className='mt-6 flex justify-center items-center'>
+      <Link href={"/search"}>
+        <Button>
+          View all courses
+        </Button>
+      </Link>
+      </div>
+      
        <CoursesList items={[...completedCourses, ...coursesInProgress]} />
 
       

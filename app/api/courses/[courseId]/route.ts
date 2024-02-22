@@ -40,11 +40,7 @@ const { video } = new Mux({
         return new NextResponse("Not found", { status: 404 });
       }
   
-      for (const chapter of course.chapters) {
-        if (chapter.muxDate?.assetId) {
-          await video.assets.delete(chapter.muxDate.assetId);
-        }
-      }
+      
   
       const deletedCourse = await db.course.delete({
         where: {
